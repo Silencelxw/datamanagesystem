@@ -1,4 +1,7 @@
 import React, {Component} from 'react'
+import ProjectDistributionByType from './projectDistributionByType'
+import ProjectDistributionByArea from './projectDistributionByArea'
+import ProjectDistributionByTime from './projectDistributionByTime'
 
 export default class RightBar extends Component{
 
@@ -6,7 +9,9 @@ export default class RightBar extends Component{
         return(
             <div>
                 <div className="rightBar">
-                    <span>右侧工具栏</span>
+                    <ProjectDistributionByType></ProjectDistributionByType>
+                    <ProjectDistributionByArea></ProjectDistributionByArea>
+                    <ProjectDistributionByTime></ProjectDistributionByTime>
                 </div>
             </div>
         )

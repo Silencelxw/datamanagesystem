@@ -1,6 +1,5 @@
 body {
     user-select: none;
-    /* background-color: #404040; */
 }
 
 a {
@@ -10,6 +9,7 @@ a {
 /*页面标题组件样式 start*/
 .title {
     position: absolute;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
@@ -26,14 +26,15 @@ a {
 }
 /*页面标题组件样式 end*/
 
+/*主页面三大父级组件样式 start*/
 .leftBar {
     position: absolute;
     z-index: 2;
     opacity: 0.7;
     left: 0;
-    top: 10%;
     bottom: 0;
     width: 23%;
+    height: 93%;
     text-align: center;
     font-size: 16px;
     background-color: #fff;
@@ -41,11 +42,11 @@ a {
 
 .map {
     position: absolute;
+    z-index: 1;
     left: 0;
-    top: 10%;
     bottom: 0;
     width: 100%;
-    height: 90%;
+    height: 93%;
     text-align: center;
     font-size: 16px;
     background-color: #404040;
@@ -56,10 +57,126 @@ a {
     z-index: 2;
     opacity: 0.7;
     right: 0;
-    top: 10%;
     bottom: 0;
     width: 23%;
+    height: 93%;
     text-align: center;
     font-size: 16px;
     background-color: #fff;
 }
+/*主页面三大父级组件样式 end*/
+
+/*项目类型分布组件样式 start*/
+.projectDistributionByType {
+    position: absolute;
+    width: 100%;
+    height: 33%;
+    top: 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.projectDistributionByType-title {
+    position: relative;
+    text-align: center;
+    color: #0e0b01;
+    top: 15px;
+    font-size: 24px;
+    line-height: 20px;
+    font-family: SimHei;
+    font-weight: 400;
+}
+
+.projectDistributionByType-chart {
+    position: absolute;
+    width: 100%;
+    height: 88%;
+    bottom: 0;
+}
+
+.dividingLine {
+    position: absolute;
+    width: 88%;
+    height: 2px;
+    left: 6%;
+    bottom: 0;
+    background-color: #005dff;
+}
+/*项目类型分布组件样式 end*/
+
+/*项目区域分布组件样式 start*/
+.projectDistributionByArea {
+    position: absolute;
+    width: 100%;
+    height: 34%;
+    top: 33%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.projectDistributionByArea-title {
+    position: relative;
+    text-align: center;
+    color: #0e0b01;
+    top: 15px;
+    font-size: 24px;
+    line-height: 20px;
+    font-family: SimHei;
+    font-weight: 400;
+}
+
+.projectDistributionByArea-chart {
+    position: absolute;
+    width: 100%;
+    height: 88%;
+    bottom: 0;
+}
+
+.projectDistributionByArea-switch {
+    position: absolute;
+    right: 6%;
+    top: 4%;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: SimHei;
+    font-weight: 500;
+}
+
+.dividingLine {
+    position: absolute;
+    width: 88%;
+    height: 2px;
+    left: 6%;
+    bottom: 0;
+    background-color: #005dff;
+}
+/*项目类型分布组件样式 end*/
+
+/*近年项目数量情况组件样式 start*/
+.projectDistributionByTime {
+    position: absolute;
+    width: 100%;
+    height: 33%;
+    bottom: 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.projectDistributionByTime-title {
+    position: relative;
+    text-align: center;
+    color: #0e0b01;
+    top: 15px;
+    font-size: 24px;
+    line-height: 20px;
+    font-family: SimHei;
+    font-weight: 400;
+}
+
+.projectDistributionByTime-chart {
+    position: absolute;
+    width: 100%;
+    height: 88%;
+    bottom: 0;
+}
+/*近年项目数量情况组件样式 end*/
