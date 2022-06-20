@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import LeftBarTitle from './leftBarTitle'
+import ProjectListBox from "./projectListBox"
 
 export default class LeftBar extends Component{
 
@@ -6,7 +8,8 @@ export default class LeftBar extends Component{
         return(
             <div>
                 <div className="leftBar">
-                    <span>左侧工具栏</span>
+                    <LeftBarTitle></LeftBarTitle>
+                    <ProjectListBox></ProjectListBox>
                 </div>
             </div>
         )

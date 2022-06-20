@@ -202,7 +202,22 @@ a {
 /* 左侧功能栏标题样式 end */
 
 /* 项目列表样式 start */
-/* .projectListBox-list {
-    
-} */
+.projectListBox-list {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    top: 9%;
+}
+
+.ant-collapse-header :hover {
+    color: #1890ff;
+}
+
+.ant-typography {
+    cursor: pointer;
+}
+
+.ant-list-item :hover {
+    color: #1890ff;
+}
 /* 项目列表样式 end */
