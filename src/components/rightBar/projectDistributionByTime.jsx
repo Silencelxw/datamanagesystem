@@ -57,7 +57,6 @@ export default class ProjectDistributionByTime extends Component{
                         time: timeDataArray[i]
                     }
                 }
-                console.log(type_timeDataArray);
                 for (let j = 0; j < type_timeDataArray.length; j++) {
                     if (typeDataArray[j] === '基础测绘') {
                         switch (timeDataArray[j]) {
