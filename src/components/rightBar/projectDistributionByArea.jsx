@@ -15,7 +15,7 @@ export default class ProjectDistributionByArea extends Component{
     }
 
     componentDidMount() {
-        const urlProjecctInformation = '../../../data/projectInformation.json'
+        const urlProjectInformation = '../../../data/projectInformation.json'
         let { areaDataArray, chartDataArray } = this.state
         let cdProjectQuantity = 0
         let pxProjectQuantity = 0
@@ -23,7 +23,7 @@ export default class ProjectDistributionByArea extends Component{
         let xzProjectQuantity = 0
         let cqProjectQuantity = 0
         let otherAreaProjectQuantity = 0
-        axios.get(urlProjecctInformation)
+        axios.get(urlProjectInformation)
             .then((response) => {
                 const { data: { data } } = response;
                 areaDataArray = data.map(item => {return item.area});

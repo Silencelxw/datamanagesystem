@@ -17,9 +17,9 @@ export default class ProjectDistributionByType extends Component{
     }
 
     componentDidMount() {
-        const urlProjecctInformation = '../../../data/projectInformation.json'
+        const urlProjectInformation = '../../../data/projectInformation.json'
         let { typeDataArray, jcchQuantity, jgldQuantity, jcyjQuantity, swjmQuantity, otherQuantity } = this.state
-        axios.get(urlProjecctInformation)
+        axios.get(urlProjectInformation)
             .then((response) => {
                 const { data: { data } } = response;
                 typeDataArray = data.map(item => {return item.type});

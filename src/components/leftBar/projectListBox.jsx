@@ -40,11 +40,6 @@ export default class ProjectListBox extends Component{
         });
     }
 
-    // 列表展开项点击回调事件
-    onClick = (e) => {
-        console.log(e.target.innerText)
-    }
-
     render(){
         return(
             <div>

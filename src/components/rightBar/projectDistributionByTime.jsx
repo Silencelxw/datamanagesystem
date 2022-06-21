@@ -19,7 +19,7 @@ export default class ProjectDistributionByTime extends Component{
     }
 
     componentDidMount() {
-        const urlProjecctInformation = '../../../data/projectInformation.json'
+        const urlProjectInformation = '../../../data/projectInformation.json'
         let { typeDataArray, timeDataArray, type_timeDataArray, jcchProjectQuantityArray, jgldProjectQuantityArray, jcyjProjectQuantityArray, swjmProjectQuantityArray, otherProjectQuantityArray } = this.state
         let jcchProject2018Quantity = 0
         let jcchProject2019Quantity = 0
@@ -46,7 +46,7 @@ export default class ProjectDistributionByTime extends Component{
         let otherProject2020Quantity = 0
         let otherProject2021Quantity = 0
         let otherProject2022Quantity = 0
-        axios.get(urlProjecctInformation)
+        axios.get(urlProjectInformation)
             .then((response) => {
                 const { data: { data } } = response;
                 typeDataArray = data.map(item => {return item.type});
