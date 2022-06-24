@@ -6,7 +6,11 @@ import 'antd/lib/collapse/style/css'
 import 'antd/lib/list/style/css'
 import 'antd/lib/typography/style/css'
 
-export default class ProjectListBoxByType extends Component{
+import { connect } from 'react-redux'
+import { onClickProjectName } from '../../redux/actions/clickProjectName'
+
+// export default class ProjectListBoxByType extends Component{
+class ProjectListBoxByType extends Component{
 
     constructor(props) {
         super(props);
@@ -65,6 +69,11 @@ export default class ProjectListBoxByType extends Component{
         console.log(e.target.innerText)
     }
 
+    onClickProjectName = (data) => {
+        // 通知redux
+        this.props.onClickProjectName(data);
+    };
+
     render(){
         let { jccyProjectData, jgldProjectData, jcyjProjectData, swjmProjectData, otherProjectData } = this.state
         return(
@@ -85,7 +94,7 @@ export default class ProjectListBoxByType extends Component{
                                     dataSource={jccyProjectData}
                                     renderItem={(item) => (
                                         <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                            <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                         </List.Item>
                                     )}
                                 />
@@ -96,7 +105,7 @@ export default class ProjectListBoxByType extends Component{
                                     dataSource={jgldProjectData}
                                     renderItem={(item) => (
                                         <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                            <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                         </List.Item>
                                     )}
                                 />
@@ -107,7 +116,7 @@ export default class ProjectListBoxByType extends Component{
                                     dataSource={jcyjProjectData}
                                     renderItem={(item) => (
                                         <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                            <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                         </List.Item>
                                     )}
                                 />
@@ -118,7 +127,7 @@ export default class ProjectListBoxByType extends Component{
                                     dataSource={swjmProjectData}
                                     renderItem={(item) => (
                                         <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                            <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                         </List.Item>
                                     )}
                                 />
@@ -129,7 +138,7 @@ export default class ProjectListBoxByType extends Component{
                                     dataSource={otherProjectData}
                                     renderItem={(item) => (
                                         <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                            <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                         </List.Item>
                                     )}
                                 />
@@ -142,3 +151,11 @@ export default class ProjectListBoxByType extends Component{
     }
 
 }
+
+// 暴露容器组件
+export default connect(
+    // 1.状态
+    state => ({ project: state.projectName }),
+    // 2.方法
+    { onClickProjectName }
+)(ProjectListBoxByType);
