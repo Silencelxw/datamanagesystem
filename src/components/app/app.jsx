@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 import Title from '../title/title'
 import LeftBar from '../leftBar/leftBar'
-import Map from '../map/map'
+import MapContainer from '../mapContainer/mapContainer'
 import RightBar from '../rightBar/rightBar'
 import '../../css/app.css'
 
@@ -14,7 +14,7 @@ export default class App extends Component{
             <div>
                 <Title className="title"></Title>
                 <LeftBar className="chartLeft"></LeftBar>
-                <Map className="map"></Map>
+                <MapContainer className="mapContainer"></MapContainer>
                 <RightBar className="chartRight"></RightBar>
             </div>
         )

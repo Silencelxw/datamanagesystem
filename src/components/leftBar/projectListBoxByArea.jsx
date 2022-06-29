@@ -74,84 +74,82 @@ export default class ProjectListBoxByArea extends Component{
         let { cdProjectData, pxProjectData, cxProjectData, xzProjectData, cqProjectData, otherProjectData } = this.state
         return(
             <div>
-                <div className="projectListBox">
-                    <div className='projectListBox-list'>
-                        <Collapse
-                            expandIcon={
-                                ({ isActive }) => <img src={isActive ? '../../../img/folderOpen.png' : '../../../img/folder.png'} alt="" />
-                            }
-                            accordion
-                            ghost
-                            bordered={false}
-                        >
-                            <Collapse.Panel header="成都地区项目" key="1">
-                                <List
-                                    split={false}
-                                    dataSource={cdProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="攀西地区项目" key="2">
-                                <List
-                                    split={false}
-                                    dataSource={pxProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="川西地区项目" key="3">
-                                <List
-                                    split={false}
-                                    dataSource={cxProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="西藏地区项目" key="4">
-                                <List
-                                    split={false}
-                                    dataSource={xzProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="重庆地区项目" key="5">
-                                <List
-                                    split={false}
-                                    dataSource={cqProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="其他地区项目" key="6">
-                                <List
-                                    split={false}
-                                    dataSource={otherProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                        </Collapse>
-                    </div>
+                <div className='projectListBox-list'>
+                    <Collapse
+                        expandIcon={
+                            ({ isActive }) => <img src={isActive ? '../../../img/folderOpen.png' : '../../../img/folder.png'} alt="" />
+                        }
+                        accordion
+                        ghost
+                        bordered={false}
+                    >
+                        <Collapse.Panel header="成都地区项目" key="1">
+                            <List
+                                split={false}
+                                dataSource={cdProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="攀西地区项目" key="2">
+                            <List
+                                split={false}
+                                dataSource={pxProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="川西地区项目" key="3">
+                            <List
+                                split={false}
+                                dataSource={cxProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="西藏地区项目" key="4">
+                            <List
+                                split={false}
+                                dataSource={xzProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="重庆地区项目" key="5">
+                            <List
+                                split={false}
+                                dataSource={cqProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="其他地区项目" key="6">
+                            <List
+                                split={false}
+                                dataSource={otherProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                    </Collapse>
                 </div>
             </div>
         )

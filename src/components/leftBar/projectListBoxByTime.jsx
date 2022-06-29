@@ -71,73 +71,71 @@ export default class ProjectListBoxByTime extends Component{
         let { project2018Data, project2019Data, project2020Data, project2021Data, project2022Data } = this.state
         return(
             <div>
-                <div className="projectListBox">
-                    <div className='projectListBox-list'>
-                        <Collapse
-                            expandIcon={
-                                ({ isActive }) => <img src={isActive ? '../../../img/folderOpen.png' : '../../../img/folder.png'} alt="" />
-                            }
-                            accordion
-                            ghost
-                            bordered={false}
-                        >
-                            <Collapse.Panel header="2018年项目" key="1">
-                                <List
-                                    split={false}
-                                    dataSource={project2018Data}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="2019年项目" key="2">
-                                <List
-                                    split={false}
-                                    dataSource={project2019Data}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="2020年项目" key="3">
-                                <List
-                                    split={false}
-                                    dataSource={project2020Data}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="2021年项目" key="4">
-                                <List
-                                    split={false}
-                                    dataSource={project2021Data}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="2022年项目" key="5">
-                                <List
-                                    split={false}
-                                    dataSource={project2022Data}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                        </Collapse>
-                    </div>
+                <div className='projectListBox-list'>
+                    <Collapse
+                        expandIcon={
+                            ({ isActive }) => <img src={isActive ? '../../../img/folderOpen.png' : '../../../img/folder.png'} alt="" />
+                        }
+                        accordion
+                        ghost
+                        bordered={false}
+                    >
+                        <Collapse.Panel header="2018年项目" key="1">
+                            <List
+                                split={false}
+                                dataSource={project2018Data}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="2019年项目" key="2">
+                            <List
+                                split={false}
+                                dataSource={project2019Data}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="2020年项目" key="3">
+                            <List
+                                split={false}
+                                dataSource={project2020Data}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="2021年项目" key="4">
+                            <List
+                                split={false}
+                                dataSource={project2021Data}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="2022年项目" key="5">
+                            <List
+                                split={false}
+                                dataSource={project2022Data}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                    </Collapse>
                 </div>
             </div>
         )

@@ -78,73 +78,71 @@ class ProjectListBoxByType extends Component{
         let { jccyProjectData, jgldProjectData, jcyjProjectData, swjmProjectData, otherProjectData } = this.state
         return(
             <div>
-                <div className="projectListBox">
-                    <div className='projectListBox-list'>
-                        <Collapse
-                            expandIcon={
-                                ({ isActive }) => <img src={isActive ? '../../../img/folderOpen.png' : '../../../img/folder.png'} alt="" />
-                            }
-                            accordion
-                            ghost
-                            bordered={false}
-                        >
-                            <Collapse.Panel header="基础测绘类项目" key="1">
-                                <List
-                                    split={false}
-                                    dataSource={jccyProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="激光雷达类项目" key="2">
-                                <List
-                                    split={false}
-                                    dataSource={jgldProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="监测预警类项目" key="3">
-                                <List
-                                    split={false}
-                                    dataSource={jcyjProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="三维建模类项目" key="4">
-                                <List
-                                    split={false}
-                                    dataSource={swjmProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                            <Collapse.Panel header="其他项目" key="5">
-                                <List
-                                    split={false}
-                                    dataSource={otherProjectData}
-                                    renderItem={(item) => (
-                                        <List.Item>
-                                            <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
-                                        </List.Item>
-                                    )}
-                                />
-                            </Collapse.Panel>
-                        </Collapse>
-                    </div>
+                <div className='projectListBox-list'>
+                    <Collapse
+                        expandIcon={
+                            ({ isActive }) => <img src={isActive ? '../../../img/folderOpen.png' : '../../../img/folder.png'} alt="" />
+                        }
+                        accordion
+                        ghost
+                        bordered={false}
+                    >
+                        <Collapse.Panel header="基础测绘类项目" key="1">
+                            <List
+                                split={false}
+                                dataSource={jccyProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="激光雷达类项目" key="2">
+                            <List
+                                split={false}
+                                dataSource={jgldProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="监测预警类项目" key="3">
+                            <List
+                                split={false}
+                                dataSource={jcyjProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="三维建模类项目" key="4">
+                            <List
+                                split={false}
+                                dataSource={swjmProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                        <Collapse.Panel header="其他项目" key="5">
+                            <List
+                                split={false}
+                                dataSource={otherProjectData}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                    </List.Item>
+                                )}
+                            />
+                        </Collapse.Panel>
+                    </Collapse>
                 </div>
             </div>
         )
@@ -155,7 +153,9 @@ class ProjectListBoxByType extends Component{
 // 暴露容器组件
 export default connect(
     // 1.状态
-    state => ({ project: state.projectName }),
+    state => ({ 
+        project: state.projectName,
+    }),
     // 2.方法
     { onClickProjectName }
 )(ProjectListBoxByType);

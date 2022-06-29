@@ -4,7 +4,7 @@
 import { ONCILCKPROJECTNAME } from '../constant.js';
 
 // 设定初始状态
-const initState = '初始内容';
+const initState = '激光雷达-项目5';
 
 export default function addReducer(preState = initState, action) {
     // 从action中获取type和data
