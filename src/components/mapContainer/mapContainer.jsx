@@ -40,6 +40,11 @@ class MapContainer extends Component{
             });
     }
 
+    onClickMap = e => {
+        console.log(e.currentTarget.getZoom())
+        return e.currentTarget.getZoom()
+    }
+
     render(){
         let { centerLng, centerLat, projectCoordinateArray, projectNameArray, zoom } = this.state
         const urlProjectInformation = '../../../data/projectInformation.json'
@@ -49,9 +54,11 @@ class MapContainer extends Component{
                 const nameDataArray = data.map(item => {return item.name});
                 const lngDataArray = data.map(item => {return item.lng});
                 const latDataArray = data.map(item => {return item.lat});
+                const zoomDataArray = data.map(item => {return item.zoom});
                 centerLng = lngDataArray[nameDataArray.indexOf(this.props.project)]
                 centerLat = latDataArray[nameDataArray.indexOf(this.props.project)]
-                zoom = this.props.zoom
+                // zoom = this.props.zoom
+                zoom = zoomDataArray[nameDataArray.indexOf(this.props.project)]
                 this.setState({
                     centerLng,
                     centerLat,
@@ -88,7 +95,7 @@ class MapContainer extends Component{
                         center={new window.BMapGL.Point(centerLng, centerLat)}
                         style={{ height: '100%' }}
                         zoom={zoom}
-                        onClick={e => console.log(e)}
+                        onClick={this.onClickMap}
                         enableScrollWheelZoom
                     >
                         {markerArray}

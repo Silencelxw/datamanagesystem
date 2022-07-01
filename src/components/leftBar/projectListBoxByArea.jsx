@@ -6,7 +6,11 @@ import 'antd/lib/collapse/style/css'
 import 'antd/lib/list/style/css'
 import 'antd/lib/typography/style/css'
 
-export default class ProjectListBoxByArea extends Component{
+import { connect } from 'react-redux'
+import { onClickProjectName } from '../../redux/actions/clickProjectName'
+import { onChangeZoom } from '../../redux/actions/changeZoom'
+
+class ProjectListBoxByArea extends Component{
 
     constructor(props) {
         super(props);
@@ -70,6 +74,16 @@ export default class ProjectListBoxByArea extends Component{
         console.log(e.target.innerText)
     }
 
+    onClickProjectName = (data) => {
+        // 通知redux
+        this.props.onClickProjectName(data);
+        this.onChangeZoom()
+    }
+
+    onChangeZoom = () => {
+        this.props.onChangeZoom();
+    }
+
     render(){
         let { cdProjectData, pxProjectData, cxProjectData, xzProjectData, cqProjectData, otherProjectData } = this.state
         return(
@@ -89,7 +103,7 @@ export default class ProjectListBoxByArea extends Component{
                                 dataSource={cdProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -100,7 +114,7 @@ export default class ProjectListBoxByArea extends Component{
                                 dataSource={pxProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -111,7 +125,7 @@ export default class ProjectListBoxByArea extends Component{
                                 dataSource={cxProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -122,7 +136,7 @@ export default class ProjectListBoxByArea extends Component{
                                 dataSource={xzProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -133,7 +147,7 @@ export default class ProjectListBoxByArea extends Component{
                                 dataSource={cqProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -144,7 +158,7 @@ export default class ProjectListBoxByArea extends Component{
                                 dataSource={otherProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -156,3 +170,14 @@ export default class ProjectListBoxByArea extends Component{
     }
 
 }
+
+// 暴露容器组件
+export default connect(
+    // 1.状态
+    state => ({ 
+        project: state.projectName,
+        zoom: state.zoom
+    }),
+    // 2.方法
+    { onClickProjectName, onChangeZoom }
+)(ProjectListBoxByArea);

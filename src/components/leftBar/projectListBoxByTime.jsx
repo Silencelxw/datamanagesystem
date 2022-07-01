@@ -6,7 +6,12 @@ import 'antd/lib/collapse/style/css'
 import 'antd/lib/list/style/css'
 import 'antd/lib/typography/style/css'
 
-export default class ProjectListBoxByTime extends Component{
+import { connect } from 'react-redux'
+import { onClickProjectName } from '../../redux/actions/clickProjectName'
+import { onChangeZoom } from '../../redux/actions/changeZoom'
+
+
+class ProjectListBoxByTime extends Component{
 
     constructor(props) {
         super(props);
@@ -67,6 +72,16 @@ export default class ProjectListBoxByTime extends Component{
         console.log(e.target.innerText)
     }
 
+    onClickProjectName = (data) => {
+        // 通知redux
+        this.props.onClickProjectName(data);
+        this.onChangeZoom()
+    }
+
+    onChangeZoom = () => {
+        this.props.onChangeZoom();
+    }
+
     render(){
         let { project2018Data, project2019Data, project2020Data, project2021Data, project2022Data } = this.state
         return(
@@ -86,7 +101,7 @@ export default class ProjectListBoxByTime extends Component{
                                 dataSource={project2018Data}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -97,7 +112,7 @@ export default class ProjectListBoxByTime extends Component{
                                 dataSource={project2019Data}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -108,7 +123,7 @@ export default class ProjectListBoxByTime extends Component{
                                 dataSource={project2020Data}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -119,7 +134,7 @@ export default class ProjectListBoxByTime extends Component{
                                 dataSource={project2021Data}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -130,7 +145,7 @@ export default class ProjectListBoxByTime extends Component{
                                 dataSource={project2022Data}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClick}>{item}</Typography.Text>
+                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
                                     </List.Item>
                                 )}
                             />
@@ -142,3 +157,15 @@ export default class ProjectListBoxByTime extends Component{
     }
 
 }
+
+
+// 暴露容器组件
+export default connect(
+    // 1.状态
+    state => ({ 
+        project: state.projectName,
+        zoom: state.zoom
+    }),
+    // 2.方法
+    { onClickProjectName, onChangeZoom }
+)(ProjectListBoxByTime);
