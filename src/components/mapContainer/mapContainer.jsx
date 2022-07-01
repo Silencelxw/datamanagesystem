@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 // import echarts from 'echarts'
 import axios from 'axios'
 import 'echarts/extension/bmap/bmap'
-import { Map, Marker } from 'react-bmapgl'
+import { Map, Marker, Label } from 'react-bmapgl'
 
 class MapContainer extends Component{
 
@@ -12,13 +12,15 @@ class MapContainer extends Component{
         this.state = {
             centerLng: 0,
             centerLat: 0,
-            projectCoordinateArray: []
+            projectCoordinateArray: [],
+            projectNameArray: [],
+            zoom: 6
         }
     }
 
     componentDidMount() {
         const urlProjectInformation = '../../../data/projectInformation.json'
-        let { projectCoordinateArray } = this.state
+        let { projectCoordinateArray, projectNameArray } = this.state
         axios.get(urlProjectInformation)
             .then((response) => {
                 const { data: { data } } = response;
@@ -26,9 +28,11 @@ class MapContainer extends Component{
                 projectCoordinateArray = data.map((item) => {
                     return Object.assign({}, {'lng': item.lng, 'lat': item.lat})
                 })
-
+                projectNameArray = data.map(item => {return item.name});
+                
                 this.setState({
-                    projectCoordinateArray
+                    projectCoordinateArray,
+                    projectNameArray
                 });
             })
             .catch((error) => {
@@ -37,7 +41,7 @@ class MapContainer extends Component{
     }
 
     render(){
-        let { centerLng, centerLat, projectCoordinateArray } = this.state
+        let { centerLng, centerLat, projectCoordinateArray, projectNameArray, zoom } = this.state
         const urlProjectInformation = '../../../data/projectInformation.json'
         axios.get(urlProjectInformation)
             .then((response) => {
@@ -47,20 +51,32 @@ class MapContainer extends Component{
                 const latDataArray = data.map(item => {return item.lat});
                 centerLng = lngDataArray[nameDataArray.indexOf(this.props.project)]
                 centerLat = latDataArray[nameDataArray.indexOf(this.props.project)]
+                zoom = this.props.zoom
                 this.setState({
                     centerLng,
-                    centerLat
+                    centerLat,
+                    zoom
                 });
             })
             .catch((error) => {
                 console.log(error);
             });
         const markerArray = []
+        const labelArray = []
         for (let i = 0; i < projectCoordinateArray.length; i++) {
             markerArray.push(
                 <Marker
                     key={i}
                     position={new window.BMapGL.Point(projectCoordinateArray[i].lng, projectCoordinateArray[i].lat)}
+                />
+            )
+        }
+        for (let j = 0; j < projectNameArray.length; j++) {
+            labelArray.push(
+                <Label
+                    key={j}
+                    position={new window.BMapGL.Point(projectCoordinateArray[j].lng, projectCoordinateArray[j].lat)}
+                    text={projectNameArray[j]}
                 />
             )
         }
@@ -71,11 +87,12 @@ class MapContainer extends Component{
                     <Map
                         center={new window.BMapGL.Point(centerLng, centerLat)}
                         style={{ height: '100%' }}
-                        zoom={6}
+                        zoom={zoom}
                         onClick={e => console.log(e)}
                         enableScrollWheelZoom
                     >
                         {markerArray}
+                        {labelArray}
                     </Map>
                     
                 </div>
@@ -90,5 +107,8 @@ class MapContainer extends Component{
 }
 
 export default connect(
-    state => ({ project: state.projectName })
+    state => ({ 
+        project: state.projectName,
+        zoom: state.zoom
+    })
 )(MapContainer);

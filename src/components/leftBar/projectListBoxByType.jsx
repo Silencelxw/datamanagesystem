@@ -8,6 +8,7 @@ import 'antd/lib/typography/style/css'
 
 import { connect } from 'react-redux'
 import { onClickProjectName } from '../../redux/actions/clickProjectName'
+import { onChangeZoom } from '../../redux/actions/changeZoom'
 
 // export default class ProjectListBoxByType extends Component{
 class ProjectListBoxByType extends Component{
@@ -72,7 +73,12 @@ class ProjectListBoxByType extends Component{
     onClickProjectName = (data) => {
         // 通知redux
         this.props.onClickProjectName(data);
-    };
+        this.onChangeZoom()
+    }
+
+    onChangeZoom = () => {
+        this.props.onChangeZoom();
+    }
 
     render(){
         let { jccyProjectData, jgldProjectData, jcyjProjectData, swjmProjectData, otherProjectData } = this.state
@@ -155,7 +161,8 @@ export default connect(
     // 1.状态
     state => ({ 
         project: state.projectName,
+        zoom: state.zoom
     }),
     // 2.方法
-    { onClickProjectName }
+    { onClickProjectName, onChangeZoom }
 )(ProjectListBoxByType);
