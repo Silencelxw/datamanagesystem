@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Collapse, List, Typography  } from "antd"
+import { Collapse, List, Typography, Modal, message } from "antd"
 import 'antd/lib/radio/style/css'
 import 'antd/lib/collapse/style/css'
 import 'antd/lib/list/style/css'
 import 'antd/lib/typography/style/css'
+import 'antd/lib/modal/style/css'
+import 'antd/lib/message/style/css'
 
 import { connect } from 'react-redux'
 import { onClickProjectName } from '../../redux/actions/clickProjectName'
@@ -20,7 +22,11 @@ class ProjectListBoxByType extends Component{
             jgldProjectData: [],
             jcyjProjectData: [],
             swjmProjectData: [],
-            otherProjectData: []
+            otherProjectData: [],
+            infoClickToProjectName: String,
+            visibleScgl: false,
+            visibleZlgl: false,
+            visibleJygl: false
         }
     }
 
@@ -80,8 +86,64 @@ class ProjectListBoxByType extends Component{
         this.props.onChangeZoom();
     }
 
+    // 项目数据跳转功能弹窗（后续功能研发完成删除）
+    alertTest = () => {
+        message.info({
+            content: '功能正在研发中，敬请期待！',
+            style: {
+                marginTop: '50px',
+            },
+        });
+    };
+
+    // 显示生产管理信息弹窗
+    showScglModal = (e) => {
+        let { infoClickToProjectName } = this.state
+        infoClickToProjectName = e.currentTarget.parentNode.children[0].innerText
+        this.setState({
+            infoClickToProjectName,
+            visibleScgl: true,
+        });
+    };
+
+    // 显示质量管理信息弹窗
+    showZlglModal = (e) => {
+        let { infoClickToProjectName } = this.state
+        infoClickToProjectName = e.currentTarget.parentNode.children[0].innerText
+        this.setState({
+            infoClickToProjectName,
+            visibleZlgl: true,
+        });
+    };
+
+    // 显示经营管理信息弹窗
+    showJyglModal = (e) => {
+        let { infoClickToProjectName } = this.state
+        infoClickToProjectName = e.currentTarget.parentNode.children[0].innerText
+        this.setState({
+            infoClickToProjectName,
+            visibleJygl: true,
+        });
+    };
+    
+    handleOk = e => {
+        this.setState({
+            visibleScgl: false,
+            visibleZlgl: false,
+            visibleJygl: false,
+        });
+    };
+    
+    handleCancel = e => {
+        this.setState({
+            visibleScgl: false,
+            visibleZlgl: false,
+            visibleJygl: false,
+        });
+    };
+
     render(){
-        let { jccyProjectData, jgldProjectData, jcyjProjectData, swjmProjectData, otherProjectData } = this.state
+        let { jccyProjectData, jgldProjectData, jcyjProjectData, swjmProjectData, otherProjectData, infoClickToProjectName } = this.state
         return(
             <div>
                 <div className='projectListBox-list'>
@@ -92,6 +154,7 @@ class ProjectListBoxByType extends Component{
                         accordion
                         ghost
                         bordered={false}
+                        defaultActiveKey={['1']}
                     >
                         <Collapse.Panel header="基础测绘类项目" key="1">
                             <List
@@ -100,6 +163,31 @@ class ProjectListBoxByType extends Component{
                                 renderItem={(item) => (
                                     <List.Item>
                                         <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                        {/* <a href="http://www.baidu.com" target="_blank" rel="noreferrer"><img src='../../../img/folderOpen.png' alt="" /></a> */}
+                                        <img src='../../../img/viewProjectDataButton.png'
+                                            className='projectModalButton viewProjectDataButton'
+                                            title='查看项目数据'
+                                            onClick={this.alertTest}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectScglButton.png'
+                                            className='projectModalButton viewProjectScglButton'
+                                            title='查看项目生产管理信息'
+                                            onClick={this.showScglModal}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectZlglButton.png'
+                                            className='projectModalButton viewProjectZlglButton'
+                                            title='查看项目质量管理信息'
+                                            onClick={this.showZlglModal}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectJyglButton.png'
+                                            className='projectModalButton viewProjectJyglButton'
+                                            title='查看项目经营管理信息'
+                                            onClick={this.showJyglModal}
+                                            alt=""
+                                        />
                                     </List.Item>
                                 )}
                             />
@@ -150,6 +238,67 @@ class ProjectListBoxByType extends Component{
                         </Collapse.Panel>
                     </Collapse>
                 </div>
+
+                <div className="modaltest">
+                    <Modal
+                        title="生产管理"
+                        visible={this.state.visibleScgl}
+                        onOk={this.handleOk}
+                        onCancel={this.handleCancel}
+                        centered='true'
+                        footer={null}
+                        width="1000px"
+                        bodyStyle={
+                            {
+                                height: 700,
+                                // backgroundColor: '#ECEFF1'
+                            }
+                        }
+                    >
+                        <div>
+                            <p>{infoClickToProjectName}</p>
+                        </div>
+                    </Modal>
+                    <Modal
+                        title="质量管理"
+                        visible={this.state.visibleZlgl}
+                        onOk={this.handleOk}
+                        onCancel={this.handleCancel}
+                        centered='true'
+                        footer={null}
+                        width="1000px"
+                        bodyStyle={
+                            {
+                                height: 700,
+                                // backgroundColor: '#ECEFF1'
+                            }
+                        }
+                    >
+                        <div>
+                            <p>{infoClickToProjectName}</p>
+                        </div>
+                    </Modal>
+                    <Modal
+                        title="经营管理"
+                        visible={this.state.visibleJygl}
+                        onOk={this.handleOk}
+                        onCancel={this.handleCancel}
+                        centered='true'
+                        footer={null}
+                        width="1000px"
+                        bodyStyle={
+                            {
+                                height: 700,
+                                // backgroundColor: '#ECEFF1'
+                            }
+                        }
+                    >
+                        <div>
+                            <p>{infoClickToProjectName}</p>
+                        </div>
+                    </Modal>
+                </div>
+            
             </div>
         )
     }

@@ -206,7 +206,7 @@ a {
     position: absolute;
     width: 90%;
     left: 5%;
-    top: 9%;
+    top: 10%;
 }
 
 .ant-collapse-header-text {
@@ -223,5 +223,45 @@ a {
 
 .ant-list-item :hover {
     color: #1890ff;
+}
+
+.projectModalButton {
+    cursor: pointer;
+}
+
+.viewProjectDataButton {
+    position: absolute;
+    right: 105px;
+}
+
+.viewProjectDataButton:hover {
+    content: url(../../public/img/viewProjectDataButtonHover.png);
+}
+
+.viewProjectScglButton {
+    position: absolute;
+    right: 70px;
+}
+
+.viewProjectScglButton:hover {
+    content: url(../../public/img/viewProjectScglButtonHover.png);
+}
+
+.viewProjectZlglButton {
+    position: absolute;
+    right: 35px;
+}
+
+.viewProjectZlglButton:hover {
+    content: url(../../public/img/viewProjectZlglButtonHover.png);
+}
+
+.viewProjectJyglButton {
+    position: absolute;
+    right: 0;
+}
+
+.viewProjectJyglButton:hover {
+    content: url(../../public/img/viewProjectJyglButtonHover.png);
 }
 /* 项目列表样式 end */

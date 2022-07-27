@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import 'echarts/extension/bmap/bmap'
 import { Map, Marker, Label, InfoWindow } from 'react-bmapgl'
-// import { Button } from 'antd'
 
 class MapContainer extends Component{
 
@@ -121,8 +120,6 @@ class MapContainer extends Component{
                         <img style={{width: '270px', height: '200px', borderRadius: '10px', boxShadow: '5px 5px 5px #888888', margin: '10px'}} src={projectWorkphoto1Array[clickIndex]} alt="" />
                         <img style={{width: '270px', height: '200px', borderRadius: '10px', boxShadow: '5px 5px 5px #888888', margin: '10px'}} src={projectWorkphoto2Array[clickIndex]} alt="" />
                         <br />
-                        {/* <Button onClick={this.onClickButtonTest()} type="primary" ghost>点击</Button> */}
-                        {/* <a href="http://www.baidu.com/">在线预览项目相关数据</a> */}
                     </InfoWindow>
                 )
                 this.setState({
