@@ -4,6 +4,8 @@ body {
 
 a {
     text-decoration:none;
+    display: block;
+    line-height: 0;
 }
 
 /*页面标题组件样式 start*/
@@ -221,6 +223,33 @@ a {
     cursor: pointer;
 }
 
+.longListStyle[data-value="true"] {
+    height: 220px;
+    overflow-y:scroll;
+}
+
+.longListStyle::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* 滚动条轨道 */
+.longListStyle::-webkit-scrollbar-track {
+    background: rgb(239, 239, 239);
+    border-radius: 2px;
+}
+
+/* 小滑块 */
+.longListStyle::-webkit-scrollbar-thumb {
+    background: #40a0ff49;
+    border-radius: 10px;
+}
+.longListStyle::-webkit-scrollbar-thumb:hover {
+    background: #40a0ff;
+}
+
+.longListStyle[data-value="false"] {
+}
+
 .ant-list-item :hover {
     color: #1890ff;
 }
@@ -231,7 +260,7 @@ a {
 
 .viewProjectDataButton {
     position: absolute;
-    right: 105px;
+    right: 115px;
 }
 
 .viewProjectDataButton:hover {
@@ -240,7 +269,7 @@ a {
 
 .viewProjectScglButton {
     position: absolute;
-    right: 70px;
+    right: 80px;
 }
 
 .viewProjectScglButton:hover {
@@ -249,7 +278,7 @@ a {
 
 .viewProjectZlglButton {
     position: absolute;
-    right: 35px;
+    right: 45px;
 }
 
 .viewProjectZlglButton:hover {
@@ -258,7 +287,7 @@ a {
 
 .viewProjectJyglButton {
     position: absolute;
-    right: 0;
+    right: 10px;
 }
 
 .viewProjectJyglButton:hover {

@@ -154,22 +154,31 @@ class ProjectListBoxByType extends Component{
                         accordion
                         ghost
                         bordered={false}
-                        defaultActiveKey={['1']}
+                        // 默认展开显示项
+                        // defaultActiveKey={['1']}
                     >
                         <Collapse.Panel header="基础测绘类项目" key="1">
-                            <List
+                            <List className='longListStyle' data-value={jccyProjectData.length > 5 ? true : false}
                                 split={false}
                                 dataSource={jccyProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
                                         <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
-                                        {/* <a href="http://www.baidu.com" target="_blank" rel="noreferrer"><img src='../../../img/folderOpen.png' alt="" /></a> */}
-                                        <img src='../../../img/viewProjectDataButton.png'
+                                        <a
+                                            href="http://116.62.138.29:8080/"
+                                            className='projectModalButton viewProjectDataButton'
+                                            target="_blank"
+                                            title='查看项目数据'
+                                            rel="noreferrer">
+                                                <img src='../../../img/viewProjectDataButton.png'
+                                                alt="" />
+                                        </a>
+                                        {/* <img src='../../../img/viewProjectDataButton.png'
                                             className='projectModalButton viewProjectDataButton'
                                             title='查看项目数据'
                                             onClick={this.alertTest}
                                             alt=""
-                                        />
+                                        /> */}
                                         <img src='../../../img/viewProjectScglButton.png'
                                             className='projectModalButton viewProjectScglButton'
                                             title='查看项目生产管理信息'
@@ -193,45 +202,153 @@ class ProjectListBoxByType extends Component{
                             />
                         </Collapse.Panel>
                         <Collapse.Panel header="激光雷达类项目" key="2">
-                            <List
+                            <List className='longListStyle' data-value={jgldProjectData.length > 5 ? true : false}
                                 split={false}
                                 dataSource={jgldProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
                                         <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                        <a
+                                            href="http://116.62.138.29:8080/"
+                                            className='projectModalButton viewProjectDataButton'
+                                            target="_blank"
+                                            title='查看项目数据'
+                                            rel="noreferrer">
+                                                <img src='../../../img/viewProjectDataButton.png'
+                                                alt="" />
+                                        </a>
+                                        <img src='../../../img/viewProjectScglButton.png'
+                                            className='projectModalButton viewProjectScglButton'
+                                            title='查看项目生产管理信息'
+                                            onClick={this.showScglModal}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectZlglButton.png'
+                                            className='projectModalButton viewProjectZlglButton'
+                                            title='查看项目质量管理信息'
+                                            onClick={this.showZlglModal}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectJyglButton.png'
+                                            className='projectModalButton viewProjectJyglButton'
+                                            title='查看项目经营管理信息'
+                                            onClick={this.showJyglModal}
+                                            alt=""
+                                        />
                                     </List.Item>
                                 )}
                             />
                         </Collapse.Panel>
                         <Collapse.Panel header="监测预警类项目" key="3">
-                            <List
+                            <List className='longListStyle' data-value={jcyjProjectData.length > 5 ? true : false}
                                 split={false}
                                 dataSource={jcyjProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
                                         <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                        <a
+                                            href="http://116.62.138.29:8080/"
+                                            className='projectModalButton viewProjectDataButton'
+                                            target="_blank"
+                                            title='查看项目数据'
+                                            rel="noreferrer">
+                                                <img src='../../../img/viewProjectDataButton.png'
+                                                alt="" />
+                                        </a>
+                                        <img src='../../../img/viewProjectScglButton.png'
+                                            className='projectModalButton viewProjectScglButton'
+                                            title='查看项目生产管理信息'
+                                            onClick={this.showScglModal}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectZlglButton.png'
+                                            className='projectModalButton viewProjectZlglButton'
+                                            title='查看项目质量管理信息'
+                                            onClick={this.showZlglModal}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectJyglButton.png'
+                                            className='projectModalButton viewProjectJyglButton'
+                                            title='查看项目经营管理信息'
+                                            onClick={this.showJyglModal}
+                                            alt=""
+                                        />
                                     </List.Item>
                                 )}
                             />
                         </Collapse.Panel>
                         <Collapse.Panel header="三维建模类项目" key="4">
-                            <List
+                            <List className='longListStyle' data-value={swjmProjectData.length > 5 ? true : false}
                                 split={false}
                                 dataSource={swjmProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
                                         <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                        <a
+                                            href="http://116.62.138.29:8080/"
+                                            className='projectModalButton viewProjectDataButton'
+                                            target="_blank"
+                                            title='查看项目数据'
+                                            rel="noreferrer">
+                                                <img src='../../../img/viewProjectDataButton.png'
+                                                alt="" />
+                                        </a>
+                                        <img src='../../../img/viewProjectScglButton.png'
+                                            className='projectModalButton viewProjectScglButton'
+                                            title='查看项目生产管理信息'
+                                            onClick={this.showScglModal}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectZlglButton.png'
+                                            className='projectModalButton viewProjectZlglButton'
+                                            title='查看项目质量管理信息'
+                                            onClick={this.showZlglModal}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectJyglButton.png'
+                                            className='projectModalButton viewProjectJyglButton'
+                                            title='查看项目经营管理信息'
+                                            onClick={this.showJyglModal}
+                                            alt=""
+                                        />
                                     </List.Item>
                                 )}
                             />
                         </Collapse.Panel>
                         <Collapse.Panel header="其他项目" key="5">
-                            <List
+                            <List className='longListStyle' data-value={otherProjectData.length > 5 ? true : false}
                                 split={false}
                                 dataSource={otherProjectData}
                                 renderItem={(item) => (
                                     <List.Item>
                                         <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                        <a
+                                            href="http://116.62.138.29:8080/"
+                                            className='projectModalButton viewProjectDataButton'
+                                            target="_blank"
+                                            title='查看项目数据'
+                                            rel="noreferrer">
+                                                <img src='../../../img/viewProjectDataButton.png'
+                                                alt="" />
+                                        </a>
+                                        <img src='../../../img/viewProjectScglButton.png'
+                                            className='projectModalButton viewProjectScglButton'
+                                            title='查看项目生产管理信息'
+                                            onClick={this.showScglModal}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectZlglButton.png'
+                                            className='projectModalButton viewProjectZlglButton'
+                                            title='查看项目质量管理信息'
+                                            onClick={this.showZlglModal}
+                                            alt=""
+                                        />
+                                        <img src='../../../img/viewProjectJyglButton.png'
+                                            className='projectModalButton viewProjectJyglButton'
+                                            title='查看项目经营管理信息'
+                                            onClick={this.showJyglModal}
+                                            alt=""
+                                        />
                                     </List.Item>
                                 )}
                             />
@@ -298,7 +415,6 @@ class ProjectListBoxByType extends Component{
                         </div>
                     </Modal>
                 </div>
-            
             </div>
         )
     }
