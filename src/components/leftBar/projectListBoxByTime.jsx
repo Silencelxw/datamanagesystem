@@ -161,9 +161,26 @@ class ProjectListBoxByTime extends Component{
                                 dataSource={project2018Data}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                        <Typography.Text
+                                            onClick={this.onClickProjectName}
+                                            style={
+                                                true
+                                                  ? {
+                                                      width: 220,
+                                                      textAlign: 'left'
+                                                    }
+                                                  : undefined
+                                            }
+                                            ellipsis={
+                                                true
+                                                  ? {
+                                                      tooltip: item,
+                                                    }
+                                                  : false
+                                            }
+                                        >{item}</Typography.Text>
                                         <a
-                                            href="http://116.62.138.29:8080/"
+                                            href="http://47.108.117.248:8080/"
                                             className='projectModalButton viewProjectDataButton'
                                             target="_blank"
                                             title='查看项目数据'
@@ -199,9 +216,26 @@ class ProjectListBoxByTime extends Component{
                                 dataSource={project2019Data}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                        <Typography.Text
+                                            onClick={this.onClickProjectName}
+                                            style={
+                                                true
+                                                  ? {
+                                                      width: 220,
+                                                      textAlign: 'left'
+                                                    }
+                                                  : undefined
+                                            }
+                                            ellipsis={
+                                                true
+                                                  ? {
+                                                      tooltip: item,
+                                                    }
+                                                  : false
+                                            }
+                                        >{item}</Typography.Text>
                                         <a
-                                            href="http://116.62.138.29:8080/"
+                                            href="http://47.108.117.248:8080/"
                                             className='projectModalButton viewProjectDataButton'
                                             target="_blank"
                                             title='查看项目数据'
@@ -237,9 +271,26 @@ class ProjectListBoxByTime extends Component{
                                 dataSource={project2020Data}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                        <Typography.Text
+                                            onClick={this.onClickProjectName}
+                                            style={
+                                                true
+                                                  ? {
+                                                      width: 220,
+                                                      textAlign: 'left'
+                                                    }
+                                                  : undefined
+                                            }
+                                            ellipsis={
+                                                true
+                                                  ? {
+                                                      tooltip: item,
+                                                    }
+                                                  : false
+                                            }
+                                        >{item}</Typography.Text>
                                         <a
-                                            href="http://116.62.138.29:8080/"
+                                            href="http://47.108.117.248:8080/"
                                             className='projectModalButton viewProjectDataButton'
                                             target="_blank"
                                             title='查看项目数据'
@@ -275,9 +326,26 @@ class ProjectListBoxByTime extends Component{
                                 dataSource={project2021Data}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                        <Typography.Text
+                                            onClick={this.onClickProjectName}
+                                            style={
+                                                true
+                                                  ? {
+                                                      width: 220,
+                                                      textAlign: 'left'
+                                                    }
+                                                  : undefined
+                                            }
+                                            ellipsis={
+                                                true
+                                                  ? {
+                                                      tooltip: item,
+                                                    }
+                                                  : false
+                                            }
+                                        >{item}</Typography.Text>
                                         <a
-                                            href="http://116.62.138.29:8080/"
+                                            href="http://47.108.117.248:8080/"
                                             className='projectModalButton viewProjectDataButton'
                                             target="_blank"
                                             title='查看项目数据'
@@ -313,9 +381,26 @@ class ProjectListBoxByTime extends Component{
                                 dataSource={project2022Data}
                                 renderItem={(item) => (
                                     <List.Item>
-                                        <Typography.Text onClick={this.onClickProjectName}>{item}</Typography.Text>
+                                        <Typography.Text
+                                            onClick={this.onClickProjectName}
+                                            style={
+                                                true
+                                                  ? {
+                                                      width: 220,
+                                                      textAlign: 'left'
+                                                    }
+                                                  : undefined
+                                            }
+                                            ellipsis={
+                                                true
+                                                  ? {
+                                                      tooltip: item,
+                                                    }
+                                                  : false
+                                            }
+                                        >{item}</Typography.Text>
                                         <a
-                                            href="http://116.62.138.29:8080/"
+                                            href="http://47.108.117.248:8080/"
                                             className='projectModalButton viewProjectDataButton'
                                             target="_blank"
                                             title='查看项目数据'

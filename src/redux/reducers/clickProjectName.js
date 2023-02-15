@@ -4,7 +4,7 @@
 import { ONCILCKPROJECTNAME } from '../constant.js';
 
 // 设定初始状态
-const initState = '激光雷达-项目5';
+const initState = '中和新建安置房（中胜家园）建筑物和构筑物变形监测';
 
 export default function changeCenterReducer(preState = initState, action) {
     // 从action中获取type和data
